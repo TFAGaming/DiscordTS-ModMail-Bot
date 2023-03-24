@@ -1,0 +1,20 @@
+{
+  "name": "modmail-typescript-discord-bot",
+  "version": "1.0.0",
+  "description": "Simple ModMail TypeScript Bot",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && npm run build-start",
+    "build-start": "node ."
+  },
+  "keywords": [],
+  "author": "T.F.A#7524",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.8.0",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@types/ms": "^0.7.31"
+  }
+}
