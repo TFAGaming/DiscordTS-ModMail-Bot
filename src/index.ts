@@ -6,7 +6,7 @@ dotenv_config();
 export const client: TypeScriptBot = new TypeScriptBot();
 
 console.log(`
-MODMAIL TYPESCRIPT DISCORD BOT, version: beta-1.0.0
+MODMAIL TYPESCRIPT DISCORD BOT, version: 1.0.0
 
 ████████╗░░░███████╗░░░░█████╗░
 ╚══██╔══╝░░░██╔════╝░░░██╔══██╗
@@ -23,4 +23,4 @@ client.load_events();
 
 client.start();
 
-process.on('unhandledRejection', console.error)
+process.on('unhandledRejection', console.error);
