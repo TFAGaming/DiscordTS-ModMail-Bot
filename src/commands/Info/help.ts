@@ -1,5 +1,5 @@
 import { Command } from "../../class/Command";
-import { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, Embed, CommandInteraction, StringSelectMenuInteraction } from "discord.js";
+import { SlashCommandBuilder, EmbedBuilder } from "discord.js";
 
 export default new Command({
     command_data: new SlashCommandBuilder()
@@ -12,8 +12,28 @@ export default new Command({
     run: async (client, interaction, args) => {
         await interaction.deferReply();
 
+        const commandsFetched = await client.application.commands.fetch();
+
+        const commands: string[] = [];
+
+        commandsFetched.forEach((cmd) => {
+            if (cmd.options?.length > 0) {
+                for (let option of cmd.options) {
+                    if (option.type !== 1) continue;
+
+                    commands.push(`</${cmd.name} ${option.name}:${cmd.id}>`)
+                };
+            } else {
+                commands.push(`</${cmd.name}:${cmd.id}>`);
+            };
+        });
+
         await interaction.editReply({
-            content: 'Soon...'
+            embeds: [
+                new EmbedBuilder()
+                    .setDescription('Here are my commands, click one of them to use!\n' + commands.join(', ') + '.')
+                    .setColor('Blurple')
+            ]
         });
     }
 });
