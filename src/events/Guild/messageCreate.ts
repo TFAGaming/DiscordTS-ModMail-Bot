@@ -71,20 +71,9 @@ client.on('messageCreate', async (message) => {
         let channel = guild.channels.cache.find((channel) => channel.name === message.author.id && channel.parentId === category.id && channel.type === ChannelType.GuildText);
 
         if (channel) {
-            let embed = new EmbedBuilder()
-                .setAuthor({
-                    name: message.author.tag,
-                    iconURL: message.author.displayAvatarURL()
-                })
-                .setDescription(message.content.length >= 1 ? message.content : '** **')
-                .setColor('Green')
-
-            if (message.attachments.size) embed.setImage(message.attachments.map((img) => img)[0].proxyURL);
-
             (channel as TextChannel).send({
-                embeds: [
-                    embed
-                ]
+                content: `[**${message.author.tag}**] ${message.content}`,
+                files: message.attachments.size > 0 ? [message.attachments.map((img) => img)[0].proxyURL] : null
             });
         } else {
             let ban_check = client.bans_db.get(message.author.id);
