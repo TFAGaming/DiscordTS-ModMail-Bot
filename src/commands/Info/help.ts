@@ -1,10 +1,11 @@
 import { Command } from "../../class/Command";
-import { SlashCommandBuilder, EmbedBuilder } from "discord.js";
+import { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, Embed, CommandInteraction, StringSelectMenuInteraction } from "discord.js";
 
 export default new Command({
     command_data: new SlashCommandBuilder()
         .setName('help')
         .setDescription('Replies with the help menu.')
+        .setDMPermission(false)
         .toJSON(),
     options_data: {
         cooldown: 5000

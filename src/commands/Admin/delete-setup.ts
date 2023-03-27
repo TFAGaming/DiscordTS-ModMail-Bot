@@ -4,9 +4,14 @@ import { successEmbed } from "../../util/functions";
 
 export default new Command({
     command_data: new SlashCommandBuilder()
-        .setName('delete-setup')
+        .setName('delete')
         .setDescription('Delete the setup of the ModMail system.')
+        .addSubcommand((sub) =>
+            sub.setName('setup')
+                .setDescription('Delete the setup of the ModMail system.')
+        )
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+        .setDMPermission(false)
         .toJSON(),
     run: async (client, interaction, args) => {
         await interaction.deferReply();

@@ -5,7 +5,7 @@ import { errorEmbed } from "../../util/functions";
 export default new Command({
     command_data: new SlashCommandBuilder()
         .setName('close')
-        .setDescription('Close an opened mail.')
+        .setDescription('Close an opened mail in the guild.')
         .addStringOption((opt) =>
             opt.setName('reason')
                 .setDescription('The reason for closing the mail.')
@@ -16,6 +16,7 @@ export default new Command({
                 .setDescription('Any additional information for the author of the mail.')
                 .setRequired(false)
         )
+        .setDMPermission(false)
         .toJSON(),
     run: async (client, interaction, args) => {
         const reason = args.getString('reason') || 'No reason was provided';

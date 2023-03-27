@@ -16,6 +16,7 @@ export default new Command({
                 .setDescription('The reason for the ban.')
                 .setRequired(false)
         )
+        .setDMPermission(false)
         .toJSON(),
     run: async (client, interaction, args) => {
         const user = args.getUser('user');

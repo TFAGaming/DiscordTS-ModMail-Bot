@@ -106,6 +106,7 @@ client.on('messageCreate', async (message) => {
             if (!channel) return;
 
             message.channel.send({
+                content: 'Use the slash command `/close-mail` here to close the mail.',
                 embeds: [
                     successEmbed(`Your mail has been successfully created.\n**Guild:** ${guild.name}\n**Since:** ${createDiscordTimestamp(Date.now(), 'f')}`)
                 ]

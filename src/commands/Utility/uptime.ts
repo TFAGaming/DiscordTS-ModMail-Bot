@@ -6,6 +6,7 @@ export default new Command({
     command_data: new SlashCommandBuilder()
         .setName('uptime')
         .setDescription('Check the client\'s uptime.')
+        .setDMPermission(false)
         .toJSON(),
     options_data: {
         cooldown: 5000

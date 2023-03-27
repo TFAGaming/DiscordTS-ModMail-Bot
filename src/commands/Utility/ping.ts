@@ -5,6 +5,7 @@ export default new Command({
     command_data: new SlashCommandBuilder()
         .setName('ping')
         .setDescription('Replies with pong!')
+        .setDMPermission(false)
         .toJSON(),
     options_data: {
         cooldown: 5000

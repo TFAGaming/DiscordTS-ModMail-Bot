@@ -11,6 +11,7 @@ export default new Command({
                 .setDescription('The user to unban.')
                 .setRequired(true)
         )
+        .setDMPermission(false)
         .toJSON(),
     run: async (client, interaction, args) => {
         const user = args.getUser('user');

@@ -8,6 +8,7 @@ export default new Command({
         .setName('setup')
         .setDescription('Setup the ModMail system.')
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+        .setDMPermission(false)
         .toJSON(),
     run: async (client, interaction, args) => {
         await interaction.deferReply();
