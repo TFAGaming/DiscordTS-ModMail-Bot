@@ -1,0 +1,6 @@
+node_modules/
+dist/
+
+src/config.ts
+package-lock.json
+.env
